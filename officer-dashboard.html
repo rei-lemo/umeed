@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Officer Dashboard - UMEED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gov-strip"><div class="wrap"><span><strong>Government of Arunachal Pradesh</strong> - UMEED Pilot</span><span>Officer View</span></div></div>
+  <header class="site-header"><div class="wrap nav-row"><a href="index.html" class="brand"><span class="logo-mark"></span><span class="brand-text"><span class="name">UMEED</span><span class="sub">A B Samman Initiative</span></span></a><nav class="main-links"><a href="index.html">Home</a><a href="register.html">Worker Journey</a><a href="find-workers.html">Employer Journey</a><a href="verification-status.html">Track</a><a href="statistics.html">Statistics</a><a href="contact.html">Help</a></nav><div class="nav-actions"><a href="login.html" class="btn btn-ghost">Login</a><a href="register.html" class="btn btn-primary">Register</a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+  <main>
+    <section class="page-hero"><div class="wrap"><p class="eyebrow">Officer Journey</p><h1>Review applications and monitor pilot progress.</h1><p>Government officers get a separate operational view for verification queues, assessments, and reporting.</p></div></section>
+    <section>
+      <div class="wrap">
+        <div class="dashboard-grid">
+          <div class="dashboard-card"><span>Applications</span><strong>428</strong></div>
+          <div class="dashboard-card"><span>Pending Review</span><strong>37</strong></div>
+          <div class="dashboard-card"><span>Assessments</span><strong>112</strong></div>
+          <div class="dashboard-card"><span>Verified IDs</span><strong>249</strong></div>
+        </div>
+      </div>
+    </section>
+    <section class="page-band">
+      <div class="wrap">
+        <div class="section-head"><p class="eyebrow">Verification Queue</p><h2>Applications needing action</h2></div>
+        <table class="queue-table">
+          <thead><tr><th>Application</th><th>Worker</th><th>Trade</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>UMEED-0042</td><td>Byabang Toko</td><td>Carpenter</td><td><span class="badge pending">Assessment Due</span></td><td>Schedule</td></tr>
+            <tr><td>UMEED-0043</td><td>Mara Tana</td><td>Driver</td><td><span class="badge pending">Document Review</span></td><td>Review</td></tr>
+            <tr><td>UMEED-0044</td><td>Ngilyang Padu</td><td>Mechanic</td><td><span class="badge">Verified</span></td><td>Issue ID</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

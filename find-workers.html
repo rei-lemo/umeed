@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Verified Workers - UMEED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gov-strip"><div class="wrap"><span><strong>Government of Arunachal Pradesh</strong> - UMEED Pilot</span><span>Naharlagun</span></div></div>
+  <header class="site-header"><div class="wrap nav-row"><a href="index.html" class="brand"><span class="logo-mark"></span><span class="brand-text"><span class="name">UMEED</span><span class="sub">A B Samman Initiative</span></span></a><nav class="main-links"><a href="index.html">Home</a><a href="register.html">Worker Journey</a><a class="active" href="find-workers.html">Employer Journey</a><a href="verification-status.html">Track</a><a href="statistics.html">Statistics</a><a href="contact.html">Help</a></nav><div class="nav-actions"><a href="login.html" class="btn btn-ghost">Login</a><a href="register.html" class="btn btn-primary">Register</a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+
+  <main>
+    <section class="page-hero"><div class="wrap"><p class="eyebrow">Employer Journey</p><h1>Search, shortlist, and contact verified workers.</h1><p>Employers can quickly find workers by trade, location, verification status, and availability.</p></div></section>
+    <section>
+      <div class="wrap">
+        <form class="filter-bar">
+          <select aria-label="Trade"><option>All trades</option><option>Electrician</option><option>Plumber</option><option>Carpenter</option><option>Driver</option></select>
+          <input type="text" placeholder="Location">
+          <select aria-label="Availability"><option>Available now</option><option>This week</option><option>This month</option></select>
+          <button class="btn btn-primary" type="button">Search</button>
+        </form>
+        <div class="worker-grid">
+          <article class="worker-card reveal"><div class="worker-meta"><h3>Tadar Nido</h3><span class="badge">Verified</span></div><p class="muted">Electrician with residential wiring and repair experience.</p><dl><dt>Location</dt><dd>Naharlagun</dd><dt>Experience</dt><dd>5 years</dd><dt>Skill level</dt><dd>Advanced</dd></dl><a class="btn btn-ghost" href="login.html">Contact Worker</a></article>
+          <article class="worker-card reveal"><div class="worker-meta"><h3>Yapi Rina</h3><span class="badge">Verified</span></div><p class="muted">Plumber for household fittings, leakage repair, and maintenance.</p><dl><dt>Location</dt><dd>Itanagar</dd><dt>Experience</dt><dd>3 years</dd><dt>Skill level</dt><dd>Intermediate</dd></dl><a class="btn btn-ghost" href="login.html">Contact Worker</a></article>
+          <article class="worker-card reveal"><div class="worker-meta"><h3>Byabang Toko</h3><span class="badge pending">Assessment Due</span></div><p class="muted">Carpenter listed after document review; practical assessment scheduled.</p><dl><dt>Location</dt><dd>Naharlagun</dd><dt>Experience</dt><dd>4 years</dd><dt>Skill level</dt><dd>Pending</dd></dl><a class="btn btn-ghost" href="verification-status.html">View Status</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

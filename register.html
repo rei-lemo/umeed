@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Registration - UMEED</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="gov-strip"><div class="wrap"><span><strong>Government of Arunachal Pradesh</strong> - UMEED Pilot</span><span>Naharlagun</span></div></div>
+  <header class="site-header"><div class="wrap nav-row"><a href="index.html" class="brand"><span class="logo-mark"></span><span class="brand-text"><span class="name">UMEED</span><span class="sub">A B Samman Initiative</span></span></a><nav class="main-links"><a href="index.html">Home</a><a class="active" href="register.html">Worker Journey</a><a href="find-workers.html">Employer Journey</a><a href="verification-status.html">Track</a><a href="statistics.html">Statistics</a><a href="contact.html">Help</a></nav><div class="nav-actions"><a href="login.html" class="btn btn-ghost">Login</a><a href="register.html" class="btn btn-primary">Register</a><button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></div></header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Worker Journey</p>
+        <h1>Register once and build a verified worker identity.</h1>
+        <p>This page separates the worker journey into profile details, trade information, documents, and assessment scheduling.</p>
+        <div class="journey-steps">
+          <div class="step-pill"><span>Step 1</span><strong>Profile</strong></div>
+          <div class="step-pill"><span>Step 2</span><strong>Trade</strong></div>
+          <div class="step-pill"><span>Step 3</span><strong>Documents</strong></div>
+          <div class="step-pill"><span>Step 4</span><strong>Assessment</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap form-layout">
+        <form class="form-card">
+          <div class="section-head">
+            <p class="eyebrow">Registration Form</p>
+            <h2>Worker details</h2>
+            <p>Capture the minimum details required before document verification.</p>
+          </div>
+          <div class="form-grid">
+            <div class="field"><label for="name">Full name</label><input id="name" type="text" placeholder="Enter full name"></div>
+            <div class="field"><label for="phone">Mobile number</label><input id="phone" type="tel" placeholder="+91"></div>
+            <div class="field"><label for="district">District</label><input id="district" type="text" placeholder="Papum Pare"></div>
+            <div class="field"><label for="trade">Primary trade</label><select id="trade"><option>Electrician</option><option>Plumber</option><option>Carpenter</option><option>Driver</option><option>Mechanic</option><option>Construction Worker</option></select></div>
+            <div class="field"><label for="experience">Experience</label><select id="experience"><option>Less than 1 year</option><option>1-3 years</option><option>3-5 years</option><option>5+ years</option></select></div>
+            <div class="field"><label for="assessment">Preferred assessment centre</label><input id="assessment" type="text" placeholder="Naharlagun"></div>
+            <div class="field full"><label for="documents">Documents to upload</label><input id="documents" type="file" multiple></div>
+            <div class="field full"><label for="notes">Skill notes</label><textarea id="notes" placeholder="Mention tools handled, past work, certificates, or employer references."></textarea></div>
+          </div>
+          <div class="form-actions"><button class="btn btn-primary" type="button">Save Registration</button><a class="btn btn-ghost" href="verification-status.html">Track Existing Application</a></div>
+        </form>
+        <aside class="side-note">
+          <h3>Before you start</h3>
+          <ul class="check-list">
+            <li>Keep identity proof ready.</li>
+            <li>Add trade certificate if available.</li>
+            <li>Use a phone number that can receive updates.</li>
+            <li>Choose the trade you want assessed for first.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
