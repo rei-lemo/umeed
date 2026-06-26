@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMEED — A B Samman Initiative | Government of Arunachal Pradesh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#1C3D5A;
+    --indigo-dark:#122A3F;
+    --indigo-tint:#E8EDF1;
+    --gold:#C68A2E;
+    --gold-light:#E3B563;
+    --paper:#F7F5F1;
+    --charcoal:#2B2B2B;
+    --slate:#5C6670;
+    --verified:#2F6E4F;
+    --verified-tint:#E7F1EB;
+    --pending:#B8862F;
+    --pending-tint:#F6EEDE;
+    --line:#D8D3C8;
+    --radius:10px;
+    --font-display:'IBM Plex Sans',system-ui,sans-serif;
+    --font-body:'IBM Plex Sans',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--charcoal);
+    line-height:1.55;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- institutional strip ---------- */
+  .gov-strip{
+    background:var(--indigo-dark);
+    color:#D9E3EC;
+    font-size:12.5px;
+    letter-spacing:.03em;
+  }
+  .gov-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:7px 24px;flex-wrap:wrap;gap:6px;
+  }
+  .gov-strip strong{color:#fff;font-weight:600;}
+
+  /* ---------- header ---------- */
+  header{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand-text .name{
+    font-size:21px;font-weight:700;color:var(--indigo);letter-spacing:.01em;
+  }
+  .brand-text .sub{
+    font-size:11.5px;color:var(--slate);font-weight:500;
+  }
+  nav.main-links{display:flex;gap:28px;align-items:center;}
+  nav.main-links a{
+    font-size:14.5px;font-weight:500;color:var(--charcoal);
+    padding:6px 2px;border-bottom:2px solid transparent;
+  }
+  nav.main-links a:hover{border-bottom-color:var(--gold);}
+  .nav-actions{display:flex;align-items:center;gap:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 20px;border-radius:7px;font-size:14.5px;font-weight:600;
+    border:1.5px solid transparent;cursor:pointer;white-space:nowrap;
+  }
+  .btn-primary{background:var(--gold);color:#fff;}
+  .btn-primary:hover{background:#B27D26;}
+  .btn-ghost{background:transparent;border-color:var(--indigo);color:var(--indigo);}
+  .btn-ghost:hover{background:var(--indigo);color:#fff;}
+  .btn-outline-light{background:transparent;border-color:rgba(255,255,255,.55);color:#fff;}
+  .btn-outline-light:hover{background:rgba(255,255,255,.12);}
+
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+  .menu-toggle svg{width:26px;height:26px;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:var(--indigo);
+    color:#fff;
+  }
+  .hero-topo{
+    position:absolute;inset:0;opacity:.10;pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:1;
+    padding:88px 24px 96px;
+    max-width:760px;margin:0 auto;text-align:center;
+  }
+  .hero-mark{margin:0 auto 28px;width:56px;height:56px;}
+  .hero h1{
+    font-size:38px;font-weight:700;line-height:1.25;margin:0 0 18px;
+    letter-spacing:-.01em;
+  }
+  .hero p.lede{
+    font-size:16.5px;color:#C9D6E2;margin:0 0 34px;max-width:560px;
+    margin-left:auto;margin-right:auto;
+  }
+  .hero-ctas{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .hero-tagline{
+    margin-top:30px;font-family:var(--font-mono);font-size:12.5px;
+    color:#8FA6BC;letter-spacing:.05em;
+  }
+
+  /* ---------- section shells ---------- */
+  section{padding:72px 0;}
+  .section-head{max-width:640px;margin:0 0 44px;}
+  .eyebrow{
+    font-family:var(--font-mono);font-size:12px;font-weight:600;
+    color:var(--gold);letter-spacing:.08em;text-transform:uppercase;
+    margin:0 0 10px;
+  }
+  .section-head h2{font-size:27px;font-weight:700;margin:0 0 10px;color:var(--indigo);}
+  .section-head p{font-size:15px;color:var(--slate);margin:0;}
+
+  /* ---------- process ---------- */
+  .process{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .process-step{position:relative;padding:28px 22px 24px;border:1px solid var(--line);border-radius:var(--radius);}
+  .process-step .num{
+    font-family:var(--font-mono);font-size:13px;font-weight:600;
+    color:var(--gold);letter-spacing:.04em;margin-bottom:14px;display:block;
+  }
+  .process-step h3{font-size:17px;margin:0 0 8px;color:var(--indigo);}
+  .process-step p{font-size:14px;color:var(--slate);margin:0;}
+  .process-step:not(:last-child)::after{
+    content:"";position:absolute;top:50%;right:-28px;width:20px;height:1.5px;
+    background:var(--line);display:none;
+  }
+
+  /* ---------- audiences ---------- */
+  .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .audience-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;display:flex;flex-direction:column;
+  }
+  .audience-card .icon{
+    width:44px;height:44px;border-radius:9px;background:var(--indigo-tint);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  }
+  .audience-card .icon svg{width:22px;height:22px;color:var(--indigo);}
+  .audience-card h3{font-size:18px;margin:0 0 8px;color:var(--indigo);}
+  .audience-card p{font-size:14px;color:var(--slate);margin:0 0 20px;flex:1;}
+  .audience-card a.cta{font-size:14px;font-weight:600;color:var(--gold);display:inline-flex;align-items:center;gap:6px;}
+  .audience-card a.cta svg{width:14px;height:14px;}
+
+  /* ---------- trades ---------- */
+  .trades{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .trade-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
+  .trade-tile{
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 14px;text-align:center;background:var(--paper);
+  }
+  .trade-tile svg{width:26px;height:26px;color:var(--indigo);margin:0 auto 12px;}
+  .trade-tile span{font-size:13px;font-weight:500;color:var(--charcoal);}
+
+  /* ---------- trust ---------- */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .trust-item{display:flex;gap:14px;align-items:flex-start;}
+  .trust-item .mark{width:34px;height:34px;flex-shrink:0;color:var(--gold);}
+  .trust-item h4{font-size:15.5px;margin:0 0 6px;color:var(--indigo);}
+  .trust-item p{font-size:13.5px;color:var(--slate);margin:0;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--indigo-dark);color:#B9C6D2;padding:56px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:36px;margin-bottom:40px;}
+  .footer-grid h5{color:#fff;font-size:14px;margin:0 0 16px;font-weight:600;}
+  .footer-grid p,.footer-grid li{font-size:13.5px;line-height:1.7;}
+  .footer-grid ul{list-style:none;padding:0;margin:0;}
+  .footer-grid li{margin-bottom:8px;}
+  .footer-grid li a:hover{color:#fff;}
+  .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-brand .name{color:#fff;font-weight:700;font-size:17px;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);padding-top:22px;
+    font-size:12.5px;color:#8298A8;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:10px;
+  }
+
+  /* ---------- mobile ---------- */
+  @media (max-width:880px){
+    nav.main-links{display:none;}
+    .menu-toggle{display:inline-flex;}
+    .hero h1{font-size:30px;}
+    .process-grid,.audience-grid,.trust-grid{grid-template-columns:1fr;}
+    .trade-grid{grid-template-columns:repeat(3,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{animation:none!important;transition:none!important;}
+  }
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<div class="gov-strip">
+  <div class="wrap">
+    <span><strong>Government of Arunachal Pradesh</strong> — Labour Department &amp; Skill Development &amp; Entrepreneurship Department</span>
+    <span>Pilot: Naharlagun</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="index.html" class="brand" aria-label="UMEED home">
+      <svg viewBox="0 0 48 48" width="34" height="34" aria-hidden="true">
+        <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="none" stroke="#1C3D5A" stroke-width="2.5"/>
+        <path d="M15 24l6 7 13-15" fill="none" stroke="#C68A2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">UMEED</span>
+        <span class="sub">A B Samman Initiative</span>
+      </span>
+    </a>
+
+    <nav class="main-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="find-workers.html">Find Workers</a>
+      <a href="register.html">Register</a>
+      <a href="verification-status.html">Track Application</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Help Centre</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-ghost">Login</a>
+      <a href="register.html" class="btn btn-primary">Register as Worker</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1C3D5A" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-topo" viewBox="0 0 1180 460" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,380 Q150,330 300,360 T600,330 T900,370 T1180,340" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <path d="M0,410 Q160,360 320,395 T620,365 T920,400 T1180,375" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <path d="M0,440 Q170,400 340,425 T640,400 T940,430 T1180,410" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <path d="M0,60 Q150,20 300,45 T600,15 T900,50 T1180,25" fill="none" stroke="#fff" stroke-width="1.5"/>
+  </svg>
+  <div class="hero-inner">
+    <svg class="hero-mark" viewBox="0 0 48 48" aria-hidden="true">
+      <polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="none" stroke="#E3B563" stroke-width="2.5"/>
+      <path d="M15 24l6 7 13-15" fill="none" stroke="#E3B563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1>Every Skilled Worker Deserves Respect, Recognition, and Opportunity.</h1>
+    <p class="lede">UMEED gives blue-collar workers — electricians, plumbers, carpenters, drivers, mechanics, and construction workers — a verified digital identity, and gives employers a trusted way to find them.</p>
+    <div class="hero-ctas">
+      <a href="register.html" class="btn btn-primary">Register as a Worker</a>
+      <a href="find-workers.html" class="btn btn-outline-light">Find Verified Workers</a>
+    </div>
+    <div class="hero-tagline">उम्मीद — meaning "hope"</div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How It Works</p>
+      <h2>From registration to recognition</h2>
+      <p>Three steps stand between any worker and a verified, government-recognised identity.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <span class="num">01</span>
+        <h3>Register &amp; Upload Documents</h3>
+        <p>Workers sign up and submit identity and trade documents for review.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="num">02</span>
+        <h3>Skill Verification</h3>
+        <p>A practical assessment confirms the worker's trade and skill level.</p>
+      </div>
+      <div class="process-step reveal">
+        <span class="num">03</span>
+        <h3>Digital Worker ID</h3>
+        <p>Verified workers receive a portable ID and appear to employers searching their trade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Built For Three Audiences</p>
+      <h2>One platform, three roles</h2>
+      <p>UMEED is shaped around what each side of the labour market actually needs.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+        </div>
+        <h3>For Workers</h3>
+        <p>Build a verified profile once, carry it anywhere. Show employers proof of skill, not just a claim.</p>
+        <a href="register.html" class="cta">Register now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="audience-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        </div>
+        <h3>For Employers</h3>
+        <p>Search by trade and location, and hire workers whose skills have already been verified.</p>
+        <a href="find-workers.html" class="cta">Find workers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="audience-card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3z"/></svg>
+        </div>
+        <h3>For Government Officers</h3>
+        <p>Oversee verification queues, monitor pilot progress, and track outcomes for the workforce.</p>
+        <a href="officer-dashboard.html" class="cta">Open dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trades">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Trades Covered</p>
+      <h2>Built around the work people actually do</h2>
+    </div>
+    <div class="trade-grid">
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 1 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/></svg>
+        <span>Electrician</span>
+      </div>
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 7V4a2 2 0 1 1 4 0v3M7 7h10l-1 5H8L7 7z"/><path d="M9 12v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-6"/></svg>
+        <span>Plumber</span>
+      </div>
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l6-6M14 3l7 7-3 3-7-7 3-3z"/><path d="M11 6l7 7"/></svg>
+        <span>Carpenter</span>
+      </div>
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
+        <span>Driver</span>
+      </div>
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="9" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M11 11l4 4"/></svg>
+        <span>Mechanic</span>
+      </div>
+      <div class="trade-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
+        <span>Construction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Why Trust UMEED</p>
+      <h2>Verification with accountability</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-item reveal">
+        <svg class="mark" viewBox="0 0 48 48" fill="none"><polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Verified, not self-declared</h4>
+          <p>Every worker ID is backed by a real skill assessment, not just a form submission.</p>
+        </div>
+      </div>
+      <div class="trust-item reveal">
+        <svg class="mark" viewBox="0 0 48 48" fill="none"><polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Recognised by government</h4>
+          <p>A joint initiative of two state departments, not a private directory.</p>
+        </div>
+      </div>
+      <div class="trust-item reveal">
+        <svg class="mark" viewBox="0 0 48 48" fill="none"><polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" stroke="currentColor" stroke-width="2.5"/><path d="M15 24l6 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <h4>Built around dignity</h4>
+          <p>Workers carry one verified ID across employers — recognition that travels with them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 48 48" width="28" height="28" aria-hidden="true"><polygon points="24,3 43,13.5 43,34.5 24,45 5,34.5 5,13.5" fill="none" stroke="#E3B563" stroke-width="2.5"/><path d="M15 24l6 7 13-15" fill="none" stroke="#E3B563" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="name">UMEED</span>
+        </div>
+        <p>A B Samman Initiative — a trusted digital platform for registration, skill verification, recognition, and employment opportunities for Arunachal Pradesh's blue-collar workforce. Currently piloting in Naharlagun.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="find-workers.html">Find Workers</a></li>
+          <li><a href="verification-status.html">Track Status</a></li>
+          <li><a href="statistics.html">Live Statistics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>About</h5>
+        <ul>
+          <li><a href="about.html">About UMEED</a></li>
+          <li><a href="contact.html">Help Centre</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Departments</h5>
+        <p>Labour Department, Government of Arunachal Pradesh</p>
+        <p>Skill Development &amp; Entrepreneurship Department, Government of Arunachal Pradesh</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Government of Arunachal Pradesh. UMEED is a joint initiative of the Labour Department and Skill Development &amp; Entrepreneurship Department.</span>
+      <span>Developed by Rei Lemo</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile menu toggle
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+    const nav = document.querySelector('nav.main-links');
+    const open = nav.style.display === 'flex';
+    nav.style.display = open ? 'none' : 'flex';
+    nav.style.flexDirection = 'column';
+    nav.style.position = 'absolute';
+    nav.style.top = '64px';
+    nav.style.left = '0';
+    nav.style.right = '0';
+    nav.style.background = '#fff';
+    nav.style.padding = '16px 24px';
+    nav.style.borderBottom = '1px solid #D8D3C8';
+  });
+
+  // scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
